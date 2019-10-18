@@ -1,0 +1,30 @@
+allprojects {
+    apply plugin : 'java'
+    group 'com.hongjiang'
+    version '1.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'javax.servlet:javax.servlet-api:4.0.1'
+        implementation 'opensymphony:xwork:2.0.3'
+        implementation 'mysql:mysql-connector-java:8.0.18'
+        implementation 'org.springframework.boot:spring-boot:2.2.0.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.2.0.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive:2.2.0.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-devtools:2.2.0.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-jetty:2.2.0.RELEASE'
+        // implementation 'org.springframework.boot:spring-boot-starter-security:2.2.0.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.2.0.RELEASE'
+        implementation (['org.springframework.boot:spring-boot-starter-web:2.2.0.RELEASE']){
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        }
+        compileOnly 'org.projectlombok:lombok:1.18.10'
+        annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    }
+}
